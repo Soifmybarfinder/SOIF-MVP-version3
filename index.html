@@ -905,7 +905,7 @@
             </div>
         </div>
         <h1 class="splash-title">SOIF</h1>
-        <p class="splash-subtitle">Trouve ton bar idéal à Montpellier et au delà ...</p>
+        <p class="splash-subtitle">Trouve ton bar idéal à Montpellier et au delà...</p>
         <div class="loading-dots">
             <div class="dot"></div>
             <div class="dot"></div>
@@ -1022,7 +1022,7 @@
                     </div>
                     <div class="stat">
                         <span class="stat-number">24</span>
-                        <span class="stat-label">Tag bar</span>
+                        <span class="stat-label">Avis donnés</span>
                     </div>
                 </div>
             </div>
@@ -1073,8 +1073,8 @@
                     <div class="menu-item" onclick="showProfileSection('reviews')">
                         <div class="menu-item-icon">⭐</div>
                         <div class="menu-item-content">
-                            <div class="menu-item-title">Mes TAGS</div>
-                            <div class="menu-item-subtitle">TAGS et remarques</div>
+                            <div class="menu-item-title">Mes avis</div>
+                            <div class="menu-item-subtitle">Avis et notes donnés</div>
                         </div>
                         <div class="menu-item-arrow">→</div>
                     </div>
@@ -1136,8 +1136,7 @@
                 { id: 'calme', name: '🍃 Calme' },
                 { id: 'festif', name: '🎉 Festif' },
                 { id: 'rooftop', name: '🏢 Rooftop' }
-                { id: 'mocktail/bière sans alcool', name: ' 🥤 sans alcool' } 
-                { id: 'Planches à partager', name: ' 🧀 Planches ' }
+                  { id: 'Ajouter', name: '+ Ajouter tag' }
             ],
             
             bars: [
@@ -1146,36 +1145,40 @@
                     name: "Le Black Sheep",
                     type: "Pub Irlandais",
                     features: ["terrasse", "wifi", "sport", "happy"],
+                    rating: 4.5,
                     distance: "0.3 km",
                     visitors: 12
                 },
                 {
                     id: 2,
-                    name: "Comptoir des Arts",
+                    name: "Café Pito",
                     type: "Bar à Cocktails",
                     features: ["cocktails", "calme", "wifi"],
+                    rating: 4.7,
                     distance: "0.5 km",
                     visitors: 8
                 },
                 {
                     id: 3,
-                    name: "La Plage",
+                    name: "Le Broc",
                     type: "Bar de Plage",
                     features: ["terrasse", "festif", "musique"],
+                    rating: 4.2,
                     distance: "0.8 km",
                     visitors: 25
                 },
                 {
                     id: 4,
-                    name: "Le Vintage",
-                    type: "Cave à Vin",
+                    name: "Le Palace",
+                    type: "Cave à Apéro",
                     features: ["calme", "wifi", "terrasse"],
+                    rating: 4.6,
                     distance: "0.4 km",
                     visitors: 6
                 },
                 {
                     id: 5,
-                    name: "L'Arbre Blanc",
+                    name: "L'arbre Blanc",
                     type: "Rooftop",
                     features: ["rooftop", "cocktails", "festif"],
                     rating: 4.8,
@@ -1184,19 +1187,19 @@
                 },
                 {
                     id: 6,
-                    name: "Escape Bar",
+                    name: "Invader Bar",
                     type: "Bar Gaming",
                     features: ["jeux", "wifi", "happy"],
-                    rating: 4.4,
+                    rating: 4.3,
                     distance: "0.6 km",
                     visitors: 15
                 },
                 {
                     id: 7,
-                    name: "Jazz Corner",
+                    name: "Le clandestin",
                     type: "Bar Jazz",
                     features: ["musique", "cocktails", "calme"],
-                    rating: 4.6,
+                    rating: 4.4,
                     distance: "0.9 km",
                     visitors: 22
                 }
@@ -1204,35 +1207,35 @@
             
             friends: [
                 { name: "Marie", location: "Le Black Sheep", online: true },
-                { name: "Caro", location: "Comptoir des Arts", online: true },
-                { name: "Lili", location: "L'arbre Blance", online: true },
-                { name: "Lolo", location: "En route", online: true },
-                { name: "Nico", location: "Jazz Corner", online: false }
+                { name: "Jerry", location: "Café Pito", online: true },
+                { name: "Nico", location: "L'Arbre Blanc", online: true },
+                { name: "Caro", location: "En route", online: true },
+                { name: "Sophie", location: "Le clandestin", online: false }
             ],
 
             events: [
                 {
                     id: 1,
-                    title: "Soirée Karaoké & Prosseco",
-                    bar: "Jazz Corner",
+                    title: "Soirée Jazz & Cocktails",
+                    bar: "Le clandestin",
                     date: "2025-09-15",
                     time: "20:00",
-                    description: "Venez découvrir le nouveau groupe de karaoké live avec des cocktails signatures !",
+                    description: "Venez découvrir le nouveau groupe de jazz local avec des cocktails signatures !",
                     maxParticipants: 15,
-                    participants: ["Jerry", "Caro", "Nico"],
+                    participants: ["Marie", "Jerry", "Caro"],
                     organizer: "Sophie Larmaillard",
                     popular: true
                 },
                 {
                     id: 2,
-                    title: "Afterwork networking",
-                    bar: "Comptoir des Arts", 
+                    title: "Afterwork ",
+                    bar: "Café Pito", 
                     date: "2025-09-14",
                     time: "18:30",
                     description: "Rencontres professionnelles dans une ambiance détendue",
                     maxParticipants: 20,
-                    participants: ["Sylvie", "Marie"],
-                    organizer: "Tom Martin",
+                    participants: ["Lisa", "Marie"],
+                    organizer: "Lola Martin",
                     popular: false
                 },
                 {
@@ -1243,32 +1246,32 @@
                     time: "16:00",
                     description: "Tournoi amical avec bières et tapas. Inscription gratuite !",
                     maxParticipants: 12,
-                    participants: ["Lili", "Sophie","Lolo"],
-                    organizer: "Lolo Dubois",
+                    participants: ["Alex", "Lili"],
+                    organizer: "Seb Bernard",
                     popular: false
                 },
                 {
                     id: 4,
                     title: "Soirée Rooftop Sunset",
-                    bar: "Sky Lounge",
+                    bar: "L'arbre Blanc",
                     date: "2025-09-17",
                     time: "19:00", 
                     description: "Admirez le coucher de soleil sur Montpellier avec des cocktails exceptionnels",
                     maxParticipants: 25,
-                    participants: ["Jerry", "Caro", "Lisa", "Nico"],
-                    organizer: "Alex Rivera",
+                    participants: ["Marie", "Jerry", "Caro", "Sophie"],
+                    organizer: "Louise Rivera",
                     popular: true
                 },
                 {
                     id: 5,
-                    title: "Game Night",
+                    title: "Invader",
                     bar: "Game Zone",
                     date: "2025-09-18",
                     time: "20:30",
                     description: "Soirée jeux vidéo et board games entre amis",
                     maxParticipants: 10,
-                    participants: ["Eliott", "J.C", "Merlin"],
-                    organizer: "Lisa Chen",
+                    participants: ["Merlin", "Eliott"],
+                    organizer: "Louna Pons",
                     popular: false
                 }
             ],
