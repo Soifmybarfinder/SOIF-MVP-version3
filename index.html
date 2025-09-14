@@ -1136,6 +1136,8 @@
                 { id: 'calme', name: '🍃 Calme' },
                 { id: 'festif', name: '🎉 Festif' },
                 { id: 'rooftop', name: '🏢 Rooftop' }
+                { id: 'mocktail/bière sans alcool', name: ' 🥤 sans alcool' } 
+                { id: 'Planches à partager', name: ' 🧀 Planches ' }
             ],
             
             bars: [
@@ -1173,17 +1175,19 @@
                 },
                 {
                     id: 5,
-                    name: "Sky Lounge",
+                    name: "L'Arbre Blanc",
                     type: "Rooftop",
                     features: ["rooftop", "cocktails", "festif"],
+                    rating: 4.8,
                     distance: "0.7 km",
                     visitors: 18
                 },
                 {
                     id: 6,
-                    name: "Game Zone",
+                    name: "Escape Bar",
                     type: "Bar Gaming",
                     features: ["jeux", "wifi", "happy"],
+                    rating: 4.4,
                     distance: "0.6 km",
                     visitors: 15
                 },
@@ -1192,7 +1196,7 @@
                     name: "Jazz Corner",
                     type: "Bar Jazz",
                     features: ["musique", "cocktails", "calme"],
-                    rating: 4.4,
+                    rating: 4.6,
                     distance: "0.9 km",
                     visitors: 22
                 }
@@ -1200,10 +1204,10 @@
             
             friends: [
                 { name: "Marie", location: "Le Black Sheep", online: true },
-                { name: "Tom", location: "Comptoir des Arts", online: true },
-                { name: "Lisa", location: "Sky Lounge", online: true },
-                { name: "Alex", location: "En route", online: true },
-                { name: "Sophie", location: "Jazz Corner", online: false }
+                { name: "Caro", location: "Comptoir des Arts", online: true },
+                { name: "Lili", location: "L'arbre Blance", online: true },
+                { name: "Lolo", location: "En route", online: true },
+                { name: "Nico", location: "Jazz Corner", online: false }
             ],
 
             events: [
@@ -1227,7 +1231,7 @@
                     time: "18:30",
                     description: "Rencontres professionnelles dans une ambiance détendue",
                     maxParticipants: 20,
-                    participants: ["Lisa", "Marie"],
+                    participants: ["Sylvie", "Marie"],
                     organizer: "Tom Martin",
                     popular: false
                 },
@@ -1239,8 +1243,8 @@
                     time: "16:00",
                     description: "Tournoi amical avec bières et tapas. Inscription gratuite !",
                     maxParticipants: 12,
-                    participants: ["Alex", "Sophie"],
-                    organizer: "Marie Dubois",
+                    participants: ["Lili", "Sophie","Lolo"],
+                    organizer: "Lolo Dubois",
                     popular: false
                 },
                 {
@@ -1263,7 +1267,7 @@
                     time: "20:30",
                     description: "Soirée jeux vidéo et board games entre amis",
                     maxParticipants: 10,
-                    participants: ["Sophie", "Tom"],
+                    participants: ["Eliott", "J.C", "Merlin"],
                     organizer: "Lisa Chen",
                     popular: false
                 }
