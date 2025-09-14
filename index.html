@@ -1010,7 +1010,7 @@
                     <button class="edit-avatar-btn">✏️</button>
                 </div>
                 <h2 class="profile-name">Sophie Larmaillard</h2>
-                <p class="profile-email">soif-barfinder@gmail.com</p>
+                <p class="profile-email">sophie@soif-barfinder.com</p>
                 <div class="profile-stats">
                     <div class="stat">
                         <span class="stat-number">12</span>
@@ -1136,7 +1136,6 @@
                 { id: 'calme', name: '🍃 Calme' },
                 { id: 'festif', name: '🎉 Festif' },
                 { id: 'rooftop', name: '🏢 Rooftop' }
-                  { id: 'Ajouter', name: '+ Ajouter tag' }
             ],
             
             bars: [
@@ -1151,7 +1150,7 @@
                 },
                 {
                     id: 2,
-                    name: "Café Pito",
+                    name: "Comptoir des Arts",
                     type: "Bar à Cocktails",
                     features: ["cocktails", "calme", "wifi"],
                     rating: 4.7,
@@ -1160,7 +1159,7 @@
                 },
                 {
                     id: 3,
-                    name: "Le Broc",
+                    name: "La Plage",
                     type: "Bar de Plage",
                     features: ["terrasse", "festif", "musique"],
                     rating: 4.2,
@@ -1169,8 +1168,8 @@
                 },
                 {
                     id: 4,
-                    name: "Le Palace",
-                    type: "Cave à Apéro",
+                    name: "Le Vintage",
+                    type: "Cave à Vin",
                     features: ["calme", "wifi", "terrasse"],
                     rating: 4.6,
                     distance: "0.4 km",
@@ -1178,7 +1177,7 @@
                 },
                 {
                     id: 5,
-                    name: "L'arbre Blanc",
+                    name: "Sky Lounge",
                     type: "Rooftop",
                     features: ["rooftop", "cocktails", "festif"],
                     rating: 4.8,
@@ -1187,7 +1186,7 @@
                 },
                 {
                     id: 6,
-                    name: "Invader Bar",
+                    name: "Game Zone",
                     type: "Bar Gaming",
                     features: ["jeux", "wifi", "happy"],
                     rating: 4.3,
@@ -1196,7 +1195,7 @@
                 },
                 {
                     id: 7,
-                    name: "Le clandestin",
+                    name: "Jazz Corner",
                     type: "Bar Jazz",
                     features: ["musique", "cocktails", "calme"],
                     rating: 4.4,
@@ -1207,35 +1206,35 @@
             
             friends: [
                 { name: "Marie", location: "Le Black Sheep", online: true },
-                { name: "Jerry", location: "Café Pito", online: true },
-                { name: "Nico", location: "L'Arbre Blanc", online: true },
-                { name: "Caro", location: "En route", online: true },
-                { name: "Sophie", location: "Le clandestin", online: false }
+                { name: "Tom", location: "Comptoir des Arts", online: true },
+                { name: "Lisa", location: "Sky Lounge", online: true },
+                { name: "Alex", location: "En route", online: true },
+                { name: "Sophie", location: "Jazz Corner", online: false }
             ],
 
             events: [
                 {
                     id: 1,
                     title: "Soirée Jazz & Cocktails",
-                    bar: "Le clandestin",
+                    bar: "Jazz Corner",
                     date: "2025-09-15",
                     time: "20:00",
                     description: "Venez découvrir le nouveau groupe de jazz local avec des cocktails signatures !",
                     maxParticipants: 15,
-                    participants: ["Marie", "Jerry", "Caro"],
+                    participants: ["Marie", "Tom", "Alex"],
                     organizer: "Sophie Larmaillard",
                     popular: true
                 },
                 {
                     id: 2,
-                    title: "Afterwork ",
-                    bar: "Café Pito", 
+                    title: "Afterwork networking",
+                    bar: "Comptoir des Arts", 
                     date: "2025-09-14",
                     time: "18:30",
                     description: "Rencontres professionnelles dans une ambiance détendue",
                     maxParticipants: 20,
                     participants: ["Lisa", "Marie"],
-                    organizer: "Lola Martin",
+                    organizer: "Tom Martin",
                     popular: false
                 },
                 {
@@ -1246,32 +1245,32 @@
                     time: "16:00",
                     description: "Tournoi amical avec bières et tapas. Inscription gratuite !",
                     maxParticipants: 12,
-                    participants: ["Alex", "Lili"],
-                    organizer: "Seb Bernard",
+                    participants: ["Alex", "Sophie"],
+                    organizer: "Marie Dubois",
                     popular: false
                 },
                 {
                     id: 4,
                     title: "Soirée Rooftop Sunset",
-                    bar: "L'arbre Blanc",
+                    bar: "Sky Lounge",
                     date: "2025-09-17",
                     time: "19:00", 
                     description: "Admirez le coucher de soleil sur Montpellier avec des cocktails exceptionnels",
                     maxParticipants: 25,
-                    participants: ["Marie", "Jerry", "Caro", "Sophie"],
-                    organizer: "Louise Rivera",
+                    participants: ["Marie", "Tom", "Lisa", "Alex"],
+                    organizer: "Alex Rivera",
                     popular: true
                 },
                 {
                     id: 5,
-                    title: "Invader",
+                    title: "Game Night",
                     bar: "Game Zone",
                     date: "2025-09-18",
                     time: "20:30",
                     description: "Soirée jeux vidéo et board games entre amis",
                     maxParticipants: 10,
-                    participants: ["Merlin", "Eliott"],
-                    organizer: "Louna Pons",
+                    participants: ["Sophie", "Tom"],
+                    organizer: "Lisa Chen",
                     popular: false
                 }
             ],
