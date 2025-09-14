@@ -905,7 +905,7 @@
             </div>
         </div>
         <h1 class="splash-title">SOIF</h1>
-        <p class="splash-subtitle">Trouve ton bar idéal à Montpellier</p>
+        <p class="splash-subtitle">Trouve ton bar idéal à Montpellier et au delà ...</p>
         <div class="loading-dots">
             <div class="dot"></div>
             <div class="dot"></div>
@@ -1007,4 +1007,724 @@
             <div class="profile-header">
                 <div class="profile-avatar">
                     <span class="avatar-text">SL</span>
-                    <button
+                    <button class="edit-avatar-btn">✏️</button>
+                </div>
+                <h2 class="profile-name">Sophie Larmaillard</h2>
+                <p class="profile-email">soif-barfinder@gmail.com</p>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Bars visités</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">8</span>
+                        <span class="stat-label">Favoris</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Tag bar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Menu -->
+            <div class="profile-menu">
+                <div class="menu-section">
+                    <h3 class="menu-section-title">Mon compte</h3>
+                    <div class="menu-item" onclick="showProfileSection('personal')">
+                        <div class="menu-item-icon">👤</div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">Informations personnelles</div>
+                            <div class="menu-item-subtitle">Nom, email, téléphone</div>
+                        </div>
+                        <div class="menu-item-arrow">→</div>
+                    </div>
+                    
+                    <div class="menu-item" onclick="showProfileSection('preferences')">
+                        <div class="menu-item-icon">⚙️</div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">Préférences</div>
+                            <div class="menu-item-subtitle">Types de bars préférés</div>
+                        </div>
+                        <div class="menu-item-arrow">→</div>
+                    </div>
+
+                    <div class="menu-item" onclick="showProfileSection('privacy')">
+                        <div class="menu-item-icon">🔒</div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">Confidentialité</div>
+                            <div class="menu-item-subtitle">Géolocalisation, visibilité</div>
+                        </div>
+                        <div class="menu-item-arrow">→</div>
+                    </div>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-section-title">Activité</h3>
+                    <div class="menu-item" onclick="showProfileSection('history')">
+                        <div class="menu-item-icon">📍</div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">Historique des visites</div>
+                            <div class="menu-item-subtitle">Bars récemment visités</div>
+                        </div>
+                        <div class="menu-item-arrow">→</div>
+                    </div>
+
+                    <div class="menu-item" onclick="showProfileSection('reviews')">
+                        <div class="menu-item-icon">⭐</div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">Mes TAGS</div>
+                            <div class="menu-item-subtitle">TAGS et remarques</div>
+                        </div>
+                        <div class="menu-item-arrow">→</div>
+                    </div>
+
+                    <div class="menu-item" onclick="showProfileSection('friends')">
+                        <div class="menu-item-icon">👥</div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">Mes amis</div>
+                            <div class="menu-item-subtitle">Gérer mon réseau</div>
+                        </div>
+                        <div class="menu-item-arrow">→</div>
+                    </div>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-section-title">Application</h3>
+                    <div class="menu-item" onclick="showProfileSection('notifications')">
+                        <div class="menu-item-icon">🔔</div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">Notifications</div>
+                            <div class="menu-item-subtitle">Alertes et rappels</div>
+                        </div>
+                        <div class="menu-item-arrow">→</div>
+                    </div>
+
+                    <div class="menu-item" onclick="showProfileSection('about')">
+                        <div class="menu-item-icon">ℹ️</div>
+                        <div class="menu-item-content">
+                            <div class="menu-item-title">À propos</div>
+                            <div class="menu-item-subtitle">Version 1.0.0</div>
+                        </div>
+                        <div class="menu-item-arrow">→</div>
+                    </div>
+                </div>
+
+                <div class="logout-section">
+                    <button class="logout-btn" onclick="logout()">
+                        🚪 Se déconnecter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location Button -->
+        <button class="location-btn" id="locationBtn">🎯</button>
+    </div>
+
+    <script>
+        // App Data
+        const appData = {
+            filters: [
+                { id: 'terrasse', name: '🏖️ Terrasse' },
+                { id: 'wifi', name: '📶 WiFi' },
+                { id: 'cocktails', name: '🍹 Cocktails' },
+                { id: 'musique', name: '🎵 Musique Live' },
+                { id: 'sport', name: '📺 Sport TV' },
+                { id: 'jeux', name: '🎮 Jeux' },
+                { id: 'happy', name: '⏰ Happy Hour' },
+                { id: 'calme', name: '🍃 Calme' },
+                { id: 'festif', name: '🎉 Festif' },
+                { id: 'rooftop', name: '🏢 Rooftop' }
+            ],
+            
+            bars: [
+                {
+                    id: 1,
+                    name: "Le Black Sheep",
+                    type: "Pub Irlandais",
+                    features: ["terrasse", "wifi", "sport", "happy"],
+                    distance: "0.3 km",
+                    visitors: 12
+                },
+                {
+                    id: 2,
+                    name: "Comptoir des Arts",
+                    type: "Bar à Cocktails",
+                    features: ["cocktails", "calme", "wifi"],
+                    distance: "0.5 km",
+                    visitors: 8
+                },
+                {
+                    id: 3,
+                    name: "La Plage",
+                    type: "Bar de Plage",
+                    features: ["terrasse", "festif", "musique"],
+                    distance: "0.8 km",
+                    visitors: 25
+                },
+                {
+                    id: 4,
+                    name: "Le Vintage",
+                    type: "Cave à Vin",
+                    features: ["calme", "wifi", "terrasse"],
+                    distance: "0.4 km",
+                    visitors: 6
+                },
+                {
+                    id: 5,
+                    name: "Sky Lounge",
+                    type: "Rooftop",
+                    features: ["rooftop", "cocktails", "festif"],
+                    distance: "0.7 km",
+                    visitors: 18
+                },
+                {
+                    id: 6,
+                    name: "Game Zone",
+                    type: "Bar Gaming",
+                    features: ["jeux", "wifi", "happy"],
+                    distance: "0.6 km",
+                    visitors: 15
+                },
+                {
+                    id: 7,
+                    name: "Jazz Corner",
+                    type: "Bar Jazz",
+                    features: ["musique", "cocktails", "calme"],
+                    rating: 4.4,
+                    distance: "0.9 km",
+                    visitors: 22
+                }
+            ],
+            
+            friends: [
+                { name: "Marie", location: "Le Black Sheep", online: true },
+                { name: "Tom", location: "Comptoir des Arts", online: true },
+                { name: "Lisa", location: "Sky Lounge", online: true },
+                { name: "Alex", location: "En route", online: true },
+                { name: "Sophie", location: "Jazz Corner", online: false }
+            ],
+
+            events: [
+                {
+                    id: 1,
+                    title: "Soirée Karaoké & Prosseco",
+                    bar: "Jazz Corner",
+                    date: "2025-09-15",
+                    time: "20:00",
+                    description: "Venez découvrir le nouveau groupe de karaoké live avec des cocktails signatures !",
+                    maxParticipants: 15,
+                    participants: ["Jerry", "Caro", "Nico"],
+                    organizer: "Sophie Larmaillard",
+                    popular: true
+                },
+                {
+                    id: 2,
+                    title: "Afterwork networking",
+                    bar: "Comptoir des Arts", 
+                    date: "2025-09-14",
+                    time: "18:30",
+                    description: "Rencontres professionnelles dans une ambiance détendue",
+                    maxParticipants: 20,
+                    participants: ["Lisa", "Marie"],
+                    organizer: "Tom Martin",
+                    popular: false
+                },
+                {
+                    id: 3,
+                    title: "Tournoi de pétanque",
+                    bar: "Le Black Sheep",
+                    date: "2025-09-16", 
+                    time: "16:00",
+                    description: "Tournoi amical avec bières et tapas. Inscription gratuite !",
+                    maxParticipants: 12,
+                    participants: ["Alex", "Sophie"],
+                    organizer: "Marie Dubois",
+                    popular: false
+                },
+                {
+                    id: 4,
+                    title: "Soirée Rooftop Sunset",
+                    bar: "Sky Lounge",
+                    date: "2025-09-17",
+                    time: "19:00", 
+                    description: "Admirez le coucher de soleil sur Montpellier avec des cocktails exceptionnels",
+                    maxParticipants: 25,
+                    participants: ["Jerry", "Caro", "Lisa", "Nico"],
+                    organizer: "Alex Rivera",
+                    popular: true
+                },
+                {
+                    id: 5,
+                    title: "Game Night",
+                    bar: "Game Zone",
+                    date: "2025-09-18",
+                    time: "20:30",
+                    description: "Soirée jeux vidéo et board games entre amis",
+                    maxParticipants: 10,
+                    participants: ["Sophie", "Tom"],
+                    organizer: "Lisa Chen",
+                    popular: false
+                }
+            ],
+            
+            activeFilters: [],
+            favorites: JSON.parse(localStorage.getItem('soif_favorites') || '[]'),
+            currentTab: 'search',
+            activeEventFilter: 'all',
+            userJoinedEvents: JSON.parse(localStorage.getItem('soif_joined_events') || '[]')
+        };
+
+        // Global Functions
+        function showCreateEvent() {
+            showNotification('Fonctionnalité de création d\'événement à venir ! 🚧');
+        }
+
+        function joinEvent(eventId) {
+            const event = appData.events.find(e => e.id === eventId);
+            if (!event) return;
+            
+            const isJoined = appData.userJoinedEvents.includes(eventId);
+            
+            if (isJoined) {
+                appData.userJoinedEvents = appData.userJoinedEvents.filter(id => id !== eventId);
+                event.participants = event.participants.filter(p => p !== "Sophie Larmaillard");
+                showNotification('Vous avez quitté l\'événement');
+            } else {
+                if (event.participants.length >= event.maxParticipants) {
+                    showNotification('Événement complet !');
+                    return;
+                }
+                appData.userJoinedEvents.push(eventId);
+                if (!event.participants.includes("Sophie Larmaillard")) {
+                    event.participants.push("Sophie Larmaillard");
+                }
+                showNotification('Vous participez à l\'événement ! 🎉');
+            }
+            
+            localStorage.setItem('soif_joined_events', JSON.stringify(appData.userJoinedEvents));
+            renderEvents();
+        }
+
+        function shareEvent(eventId) {
+            const event = appData.events.find(e => e.id === eventId);
+            if (event) {
+                showNotification(`Événement "${event.title}" partagé avec vos amis ! 📤`);
+            }
+        }
+
+        function filterEvents(filter) {
+            appData.activeEventFilter = filter;
+            
+            document.querySelectorAll('.event-filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-filter="${filter}"]`).classList.add('active');
+            
+            renderEvents();
+        }
+
+        function showProfileSection(section) {
+            const messages = {
+                'personal': 'Informations personnelles - En développement',
+                'preferences': 'Préférences configurées avec succès',
+                'privacy': 'Paramètres de confidentialité mis à jour',
+                'history': 'Historique des 12 derniers bars visités',
+                'reviews': 'Vous avez donné 24 avis avec une note moyenne de 4.2/5',
+                'friends': 'Vous avez 18 amis connectés sur SOIF',
+                'notifications': 'Notifications activées pour les amis à proximité',
+                'about': 'SOIF BarFinder v1.0.0 - Créé avec ❤️ à Montpellier'
+            };
+            
+            showNotification(messages[section] || 'Section en développement');
+        }
+
+        function logout() {
+            if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+                showNotification('À bientôt sur SOIF ! 👋');
+                setTimeout(() => {
+                    switchTab('search');
+                }, 2000);
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 3000);
+        }
+
+        // App Functions
+        function init() {
+            setupNavigation();
+            setupFilters();
+            setupSearch();
+            setupLocationButton();
+            setupEventFilters();
+            renderBars(appData.bars);
+            renderFriends();
+            renderFavorites();
+            renderEvents();
+        }
+
+        function setupNavigation() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.dataset.tab;
+                    switchTab(targetTab);
+                });
+            });
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            document.getElementById(`${tabName}-content`).classList.remove('hidden');
+            
+            appData.currentTab = tabName;
+            
+            if (tabName === 'social') {
+                renderPopularBars();
+            } else if (tabName === 'favorites') {
+                renderFavorites();
+            } else if (tabName === 'events') {
+                renderEvents();
+            }
+        }
+
+        function setupFilters() {
+            const container = document.getElementById('filtersContainer');
+            container.innerHTML = '';
+            
+            appData.filters.forEach(filter => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = filter.name;
+                btn.dataset.filterId = filter.id;
+                
+                btn.addEventListener('click', function() {
+                    toggleFilter(filter.id, this);
+                });
+                
+                container.appendChild(btn);
+            });
+        }
+
+        function toggleFilter(filterId, btnElement) {
+            const index = appData.activeFilters.indexOf(filterId);
+            
+            if (index > -1) {
+                appData.activeFilters.splice(index, 1);
+                btnElement.classList.remove('active');
+            } else {
+                appData.activeFilters.push(filterId);
+                btnElement.classList.add('active');
+            }
+            
+            filterBars();
+        }
+
+        function filterBars() {
+            let filteredBars = appData.bars;
+            
+            if (appData.activeFilters.length > 0) {
+                filteredBars = appData.bars.filter(bar => {
+                    return appData.activeFilters.some(filter => bar.features.includes(filter));
+                });
+            }
+            
+            renderBars(filteredBars);
+        }
+
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                const filteredBars = appData.bars.filter(bar => {
+                    return bar.name.toLowerCase().includes(query) || 
+                           bar.type.toLowerCase().includes(query);
+                });
+                renderBars(filteredBars);
+            });
+        }
+
+        function renderBars(bars) {
+            const container = document.getElementById('barsContainer');
+            container.innerHTML = '';
+            
+            if (bars.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <p>Aucun bar trouvé</p>
+                        <p style="font-size: 14px; margin-top: 10px;">Essayez de modifier vos filtres</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            bars.forEach(bar => {
+                const barCard = createBarCard(bar);
+                container.appendChild(barCard);
+            });
+        }
+
+        function createBarCard(bar) {
+            const card = document.createElement('div');
+            card.className = 'bar-card';
+            
+            const features = bar.features.map(featureId => {
+                const filter = appData.filters.find(f => f.id === featureId);
+                return filter ? `<span class="feature-tag">${filter.name}</span>` : '';
+            }).join('');
+            
+            const isFavorite = appData.favorites.includes(bar.id);
+            
+            card.innerHTML = `
+                <div class="bar-header">
+                    <div>
+                        <div class="bar-name">${bar.name}</div>
+                        <div class="bar-type">${bar.type}</div>
+                    </div>
+                    <button class="heart-btn ${isFavorite ? 'liked' : ''}" data-bar-id="${bar.id}">
+                        ❤️
+                    </button>
+                </div>
+                <div class="bar-features">${features}</div>
+                <div class="bar-info">
+                    <div class="rating">⭐ ${bar.rating}</div>
+                    <div class="distance">📍 ${bar.distance}</div>
+                    <div class="visitors">👥 ${bar.visitors}</div>
+                </div>
+            `;
+            
+            const heartBtn = card.querySelector('.heart-btn');
+            heartBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleFavorite(bar.id);
+            });
+            
+            return card;
+        }
+
+        function toggleFavorite(barId) {
+            const index = appData.favorites.indexOf(barId);
+            
+            if (index > -1) {
+                appData.favorites.splice(index, 1);
+                showNotification('Retiré des favoris !');
+            } else {
+                appData.favorites.push(barId);
+                showNotification('Ajouté aux favoris !');
+            }
+            
+            localStorage.setItem('soif_favorites', JSON.stringify(appData.favorites));
+            
+            if (appData.currentTab === 'search') {
+                filterBars();
+            } else if (appData.currentTab === 'favorites') {
+                renderFavorites();
+            }
+        }
+
+        function renderFriends() {
+            const container = document.getElementById('friendsList');
+            container.innerHTML = '';
+            
+            appData.friends.forEach(friend => {
+                const friendElement = document.createElement('div');
+                friendElement.className = 'friend-item';
+                
+                friendElement.innerHTML = `
+                    <div class="friend-avatar">
+                        👤
+                        ${friend.online ? '<div class="online-dot"></div>' : ''}
+                    </div>
+                    <div class="friend-name">${friend.name}</div>
+                    <div class="friend-location">${friend.location}</div>
+                `;
+                
+                container.appendChild(friendElement);
+            });
+        }
+
+        function renderPopularBars() {
+            const container = document.getElementById('popularBars');
+            const popularBars = [...appData.bars]
+                .sort((a, b) => b.visitors - a.visitors)
+                .slice(0, 3);
+            
+            container.innerHTML = '';
+            popularBars.forEach(bar => {
+                const barCard = createBarCard(bar);
+                container.appendChild(barCard);
+            });
+        }
+
+        function renderFavorites() {
+            const container = document.getElementById('favoriteBars');
+            const favoriteBars = appData.bars.filter(bar => appData.favorites.includes(bar.id));
+            
+            container.innerHTML = '';
+            
+            if (favoriteBars.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">❤️</div>
+                        <p>Aucun bar favori</p>
+                        <p style="font-size: 14px; margin-top: 10px;">Ajoutez des bars à vos favoris en appuyant sur ❤️</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            favoriteBars.forEach(bar => {
+                const barCard = createBarCard(bar);
+                container.appendChild(barCard);
+            });
+        }
+
+        function setupLocationButton() {
+            const btn = document.getElementById('locationBtn');
+            btn.addEventListener('click', function() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(position) {
+                            showNotification('Position mise à jour !');
+                            const nearbyBars = appData.bars.slice(0, 4);
+                            renderBars(nearbyBars);
+                        },
+                        function(error) {
+                            showNotification('Géolocalisation non disponible');
+                        }
+                    );
+                } else {
+                    showNotification('Géolocalisation non supportée');
+                }
+            });
+        }
+
+        function setupEventFilters() {
+            const filterBtns = document.querySelectorAll('.event-filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    filterEvents(filter);
+                });
+            });
+        }
+
+        function renderEvents() {
+            const container = document.getElementById('eventsList');
+            let eventsToShow = [...appData.events];
+            
+            const today = new Date().toISOString().split('T')[0];
+            const thisWeekStart = new Date();
+            const thisWeekEnd = new Date();
+            thisWeekEnd.setDate(thisWeekEnd.getDate() + 7);
+            
+            switch(appData.activeEventFilter) {
+                case 'today':
+                    eventsToShow = eventsToShow.filter(event => event.date === today);
+                    break;
+                case 'week':
+                    eventsToShow = eventsToShow.filter(event => {
+                        const eventDate = new Date(event.date);
+                        return eventDate >= thisWeekStart && eventDate <= thisWeekEnd;
+                    });
+                    break;
+                case 'friends':
+                    eventsToShow = eventsToShow.filter(event => 
+                        event.participants.some(p => appData.friends.some(f => f.name === p))
+                    );
+                    break;
+            }
+            
+            container.innerHTML = '';
+            
+            if (eventsToShow.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🎉</div>
+                        <p>Aucun événement trouvé</p>
+                        <p style="font-size: 14px; margin-top: 10px;">Créez le premier événement !</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            eventsToShow.forEach(event => {
+                const eventCard = createEventCard(event);
+                container.appendChild(eventCard);
+            });
+        }
+
+        function createEventCard(event) {
+            const card = document.createElement('div');
+            card.className = `event-card ${event.popular ? 'popular' : ''}`;
+            
+            const eventDate = new Date(event.date);
+            const formattedDate = eventDate.toLocaleDateString('fr-FR', { 
+                weekday: 'long', 
+                day: 'numeric', 
+                month: 'long' 
+            });
+            
+            const isJoined = appData.userJoinedEvents.includes(event.id);
+            
+            card.innerHTML = `
+                ${event.popular ? '<div class="event-badge">Populaire</div>' : ''}
+                
+                <div class="event-title">${event.title}</div>
+                <div class="event-bar">📍 ${event.bar}</div>
+                <div class="event-datetime">
+                    <span>📅 ${formattedDate}</span>
+                    <span>⏰ ${event.time}</span>
+                </div>
+                <div class="event-description">${event.description}</div>
+                
+                <div class="event-actions">
+                    <button class="join-btn ${isJoined ? 'joined' : ''}" 
+                            onclick="joinEvent(${event.id})">
+                        ${isJoined ? '✓ Inscrit' : 'Participer'}
+                    </button>
+                    <button class="share-btn" onclick="shareEvent(${event.id})">
+                        📤
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Initialize app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const splashScreen = document.getElementById('splashScreen');
+            const appContainer = document.getElementById('appContainer');
+            
+            setTimeout(function() {
+                splashScreen.classList.add('hidden');
+                appContainer.classList.add('visible');
+            }, 3000);
+            
+            init();
+        });
+    </script>
+</body>
+</html>
